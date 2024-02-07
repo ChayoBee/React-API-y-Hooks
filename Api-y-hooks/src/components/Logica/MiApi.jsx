@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import '../Landing/Landing-stylesheet/MiApi.css';
 
 function MiApi({ data }) {
     const [pokemon, setPokemon] = useState([]);
@@ -36,23 +37,21 @@ function MiApi({ data }) {
     ); //Esto permite que el buscador encuentre los nombres, ya sean en may. o min, y el id como string.
 
     return (
-        <div>
+        <div className="poke-container">
         {pokemonFiltrados.length ? (
-            pokemonFiltrados.map((pokemones, index) => (
-                
-                    <div key={index}>
-                        <figure>
-                            <img src={pokemones.img} alt={pokemones.name} />
-                        </figure>
-                        <h2>{pokemones.name}</h2>
-                        <h3>#{pokemones.id}</h3>
-                    </div>
-            ))
-         ) : 
-            (<h1>
-                Cargando...
-            </h1>
-            )}
+                pokemonFiltrados.map((pokemones, index) => (
+                    
+                        <div key={index} className="poke-card">
+                            <figure className="poke-img">
+                                <img src={pokemones.img} alt={pokemones.name} />
+                            </figure>
+                            <h3 className="poke-id">#{pokemones.id}</h3>
+                            <h2 className="poke-name">{pokemones.name}</h2>
+                        </div>
+                ))
+            ) : (
+                <h1>No se ha encontrado a este Pokemon</h1>
+            )};
         </div>
     );
 };

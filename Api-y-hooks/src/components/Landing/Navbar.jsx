@@ -15,3 +15,5 @@ function BasicExample() {
 }
 
 export default BasicExample;
+//Simplemente se insertó el logo y el título.
+//El logo fue traído como componente, porque fue importado como svg.
